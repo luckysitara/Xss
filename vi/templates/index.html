@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Application</title>
+</head>
+<body>
+    <h1>Welcome to Your Bank</h1>
+    <p>Your balance is: ${{ balance }}</p>
+    <h2>Transfer Money</h2>
+    <form method="GET" action="/transfer">
+        <label for="recipient">Recipient:</label>
+        <input type="text" id="recipient" name="recipient" required>
+        <br>
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" required>
+        <br>
+        <button type="submit">Transfer</button>
+    </form>
+</body>
+</html>
